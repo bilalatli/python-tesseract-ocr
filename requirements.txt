@@ -1,2 +1,5 @@
 Pillow==8.0.1
 pytesseract==0.3.6
+pip~=19.2.3
+setuptools~=41.2.0
+python-dotenv~=0.15.0
