@@ -18,7 +18,7 @@ class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
     def do_PUT(self):
         apikey = self.headers['x-api-key']
 
-        if apikey is not os.getenv('APIKEY'):
+        if not apikey == os.getenv('APIKEY'):
             reply = 'Unauthorized Area'
             self.send_response(401)
             self.end_headers()
@@ -38,7 +38,7 @@ class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
             else:
                 filename = create_unique_uuid()
 
-        text = pytesseract.image_to_string(Image.open(filepath), lang=os.getenv('LANG'))
+        text = pytesseract.image_to_string(Image.open(filepath), lang=os.getenv('TESSERACT_LANG'))
 
         self.send_response(200)
         self.end_headers()
