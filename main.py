@@ -14,7 +14,6 @@ def create_unique_uuid():
 
 
 class HTTPRequestHandler(server.SimpleHTTPRequestHandler):
-
     def do_PUT(self):
         apikey = self.headers['x-api-key']
 
